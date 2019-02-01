@@ -1,0 +1,32 @@
+jobs:
+  - script: >
+      organizationFolder(System.getenv('GITHUB_ORGANIZATION') ?: 'github-org-example') {
+        description("Github Organization folder job configured with JCasC. Set the GITHUB_ORGANIZATION environment variable when launching the container to define the organization name.")
+        displayName(System.getenv('GITHUB_ORGANIZATION') ?: 'github-org-example')
+        
+        // "Projects"
+        organizations {
+          github {
+            scanCredentialsId('github-token')
+            repoOwner(System.getenv('GITHUB_ORGANIZATION') ?: '')
+          }
+        }
+        
+        // "Project Recognizers"
+        projectFactories {
+            workflowMultiBranchProjectFactory {
+                scriptPath 'Jenkinsfile'
+            }
+        }
+        // "Orphaned Item Strategy"
+        orphanedItemStrategy {
+          discardOldItems {
+            daysToKeep(-1)
+            numToKeep(-1)
+          }
+        }
+        // "Scan Organization Folder Triggers (in minutes)" : 1 day
+        triggers {
+          periodic(1440)
+        }
+      }
