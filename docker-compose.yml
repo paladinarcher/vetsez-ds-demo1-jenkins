@@ -12,5 +12,20 @@ services:
       - ADMIN_PASSWORD=admin
       - GITHUB_ORGANIZATION=meetveracity
 
+  maven:
+    image: meetveracity/jenkins-slave-maven
+    build:
+      context: slaves/maven
+    environment:
+      - JENKINS_URL=http://jenkins-master:8080
+      - JENKINS_SECRET=
+      - JENKINS_AGENT_NAME=maven
   
-  
+  docker:
+    image: meetveracity/jenkins-slave-docker
+    build:
+      context: slaves/docker
+    environment:
+      - JENKINS_URL=http://jenkins-master:8080
+      - JENKINS_SECRET=
+      - JENKINS_AGENT_NAME=docker
