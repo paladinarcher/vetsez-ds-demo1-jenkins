@@ -37,3 +37,19 @@ security:
 unclassified:
   location:
     url: "http://localhost:8080/"
+  globalLibraries:
+    libraries:
+      - name: "jenkins-library"
+        defaultVersion: "master"
+        implicit: true
+        retriever:
+          modernSCM:
+            scm:
+              github:
+                repoOwner: "meetveracity"
+                repository: "jenkins-library"
+                traits:
+                - branchDiscoveryTrait
+                - originPullRequestDiscoveryTrait
+                - forkPullRequestDiscoveryTrait
+

@@ -4,7 +4,7 @@ jenkins:
         name: "docker"
         dockerApi:
           dockerHost:
-            uri: "unix:///var/run/docker.sock"
+            uri: "${DOCKER_URI:-unix:///var/run/docker.sock}"
         templates:
           - labelString: "docker-agent"
             dockerTemplateBase:
