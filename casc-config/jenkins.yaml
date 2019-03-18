@@ -63,6 +63,7 @@ unclassified:
               github:
                 repoOwner: "meetveracity"
                 repository: "jenkins-library"
+                credentialsId: "github"
                 traits:
                 - branchDiscoveryTrait
                 - originPullRequestDiscoveryTrait
