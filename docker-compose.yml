@@ -3,7 +3,7 @@ version: "3"
 services:
   
   jenkins-master:
-    image: meetveracity/jenkins-master
+    image: meetveracity/jenkins-master:${TAG:-latest}
     build:
       context: .
     ports:
@@ -13,7 +13,7 @@ services:
       - GITHUB_ORGANIZATION=meetveracity
 
   maven:
-    image: meetveracity/jenkins-slave-maven
+    image: meetveracity/jenkins-slave-maven:${TAG:-latest}
     build:
       context: slaves/maven
     environment:
@@ -22,7 +22,7 @@ services:
       - JENKINS_AGENT_NAME=maven
   
   docker:
-    image: meetveracity/jenkins-slave-docker
+    image: meetveracity/jenkins-slave-docker:${TAG:-latest}
     build:
       context: slaves/docker
     environment:
