@@ -18,7 +18,7 @@ services:
       context: slaves/maven
     environment:
       - JENKINS_URL=http://jenkins-master:8080
-      - JENKINS_SECRET=
+      - JENKINS_SECRET=${MAVEN_SECRET}
       - JENKINS_AGENT_NAME=maven
   
   docker:
@@ -27,5 +27,10 @@ services:
       context: slaves/docker
     environment:
       - JENKINS_URL=http://jenkins-master:8080
-      - JENKINS_SECRET=
+      - JENKINS_SECRET=${DOCKER_SECRET}
       - JENKINS_AGENT_NAME=docker
+      - DOCKER_HOST=tcp://docker-daemon:2375
+
+  docker-daemon:
+    image: docker:dind
+    privileged: true
