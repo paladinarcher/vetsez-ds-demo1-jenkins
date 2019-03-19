@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:2.168
 
 # Pre-install the following plugins
 COPY ./plugins.txt /usr/share/jenkins/ref/plugins.txt
