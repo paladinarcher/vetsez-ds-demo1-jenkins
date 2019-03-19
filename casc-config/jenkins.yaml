@@ -1,7 +1,5 @@
-plugins:
-  sites:
-  - id: "default"
-    url: "https://updates.jenkins.io/update-center.json"
+configuration-as-code:
+  deprecated: warn
 jenkins:
   agentProtocols:
   - "JNLP4-connect"
@@ -22,6 +20,7 @@ jenkins:
         remoteFS: "/home/jenkins/agent"
         launcher:
           jnlp:
+            vmargs: ""
     - permanent:
         labelString: "docker"
         mode: NORMAL
@@ -29,6 +28,7 @@ jenkins:
         remoteFS: "/home/jenkins/agent"
         launcher:
           jnlp:
+            vmargs: ""
   numExecutors: 2
   primaryView:
     all:
@@ -46,9 +46,6 @@ jenkins:
   views:
   - all:
       name: "all"
-security:
-  remotingCLI:
-    enabled: false
 unclassified:
   location:
     url: "http://localhost:8080/"
