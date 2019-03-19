@@ -11,6 +11,10 @@ services:
     environment:
       - ADMIN_PASSWORD=admin
       - GITHUB_ORGANIZATION=meetveracity
+      - GITHUB_USER=${GITHUB_USER}
+      - GITHUB_TOKEN=${GIT_ACCESS_TOKEN}
+      - DOCKER_USER=${DOCKER_USER}
+      - DOCKER_PASSWORD=${DOCKER_PASSWORD}
 
   maven:
     image: meetveracity/jenkins-slave-maven:${TAG:-latest}
@@ -34,3 +38,20 @@ services:
   docker-daemon:
     image: docker:dind
     privileged: true
+  
+  sonar:
+    image: sonarqube
+    ports:
+      - "9000:9000"
+    environment:
+      - SONARQUBE_JDBC_URL=jdbc:postgresql://postgres:5432/sonar
+      - SONARQUBE_JDBC_USER=sonar
+      - SONARQUBE_JDBC_PASSWORD=sonar
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:9.6.5-alpine
+    environment:
+      - POSTGRES_USER=sonar
+      - POSTGRES_PASSWORD=sonar
