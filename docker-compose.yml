@@ -40,7 +40,7 @@ services:
     privileged: true
   
   sonar:
-    image: sonarqube
+    image: sonarqube:7.1
     ports:
       - "9000:9000"
     environment:
