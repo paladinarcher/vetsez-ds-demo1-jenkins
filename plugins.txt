@@ -58,7 +58,7 @@ pipeline-stage-view
 plain-credentials
 scm-api
 script-security
-sonarqube
+sonar
 ssh-credentials
 ssh-slaves
 structs
