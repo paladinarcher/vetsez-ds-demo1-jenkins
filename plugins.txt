@@ -46,6 +46,7 @@ pipeline-build-step
 pipeline-github-lib
 pipeline-graph-analysis
 pipeline-input-step
+pipeline-maven
 pipeline-milestone-step
 pipeline-model-api
 pipeline-model-declarative-agent
@@ -55,6 +56,7 @@ pipeline-rest-api
 pipeline-stage-step
 pipeline-stage-tags-metadata
 pipeline-stage-view
+pipeline-utility-steps
 plain-credentials
 scm-api
 script-security
