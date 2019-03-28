@@ -48,7 +48,7 @@ jenkins:
       name: "all"
 unclassified:
   location:
-    url: "http://localhost:8080/"
+    url: "http://jenkins-master:8080/"
   globalLibraries:
     libraries:
       - name: "jenkins-library"
