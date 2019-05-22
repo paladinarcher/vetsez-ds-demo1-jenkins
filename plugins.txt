@@ -60,6 +60,7 @@ pipeline-utility-steps
 plain-credentials
 scm-api
 script-security
+slack
 sonar
 ssh-credentials
 ssh-slaves

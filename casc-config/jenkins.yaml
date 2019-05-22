@@ -49,6 +49,9 @@ jenkins:
 unclassified:
   location:
     url: "http://jenkins-master:8080/"
+  slackNotifier:
+    teamDomain: ${SLACK_WORKSPACE}
+    tokenCredentialId: slack-token
   globalLibraries:
     libraries:
       - name: "jenkins-library"
