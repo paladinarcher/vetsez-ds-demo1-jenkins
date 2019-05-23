@@ -1,0 +1,27 @@
+
+pipeline {
+    agent {
+        node {
+            
+        }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                script {
+                    if(this.respondsTo('slackSend')) {
+                        slackSend color: 'danger', message: 'Everything broke'
+                    } else {
+                        echo "Slack plugin not installed"
+                    }
+
+                    if(this.respondsTo('hipchat')) {
+                        echo 'Hipchat found'
+                    } else {
+                        echo "Hipchat plugin not installed"
+                    }
+                }
+            }
+        }
+    }
+}
