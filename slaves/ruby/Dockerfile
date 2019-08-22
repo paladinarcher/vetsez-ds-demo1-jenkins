@@ -32,7 +32,9 @@ ENV PATH /usr/lib/yarn/bin:$PATH
 RUN wget -q https://github.com/yarnpkg/yarn/releases/download/v${YARN_VERSION}/yarn-v${YARN_VERSION}.tar.gz && \
   tar -zxf yarn-v${YARN_VERSION}.tar.gz && \
   rm yarn-v${YARN_VERSION}.tar.gz && \
-  mv yarn-v${YARN_VERSION} /usr/lib/yarn
+  mv yarn-v${YARN_VERSION} /usr/lib/yarn && \
+  chown -R jenkins /usr/lib/yarn && \
+  chgrp -R jenkins /usr/lib/yarn
 
 USER jenkins
 
