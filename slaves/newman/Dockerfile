@@ -1,0 +1,11 @@
+FROM jenkins/jnlp-slave:3.27-1-alpine
+
+USER root
+
+# Install NodeJS and NPM
+RUN apk add --update nodejs npm
+
+# Install Newman
+RUN npm install -g newman
+
+USER jenkins
