@@ -3,21 +3,21 @@ version: "3"
 services:
   
   jenkins-master:
-    image: meetveracity/jenkins-master:${TAG:-latest}
+    image: docker.vetsez.net/jenkins-master:${TAG:-latest}
     build:
       context: .
     ports:
       - "8080:8080"
     environment:
       - ADMIN_PASSWORD=admin
-      - GITHUB_ORGANIZATION=meetveracity
+      - GITHUB_ORGANIZATION=paladinarcher
       - GITHUB_USER=${GITHUB_USER}
       - GITHUB_TOKEN=${GIT_ACCESS_TOKEN}
       - DOCKER_USER=${DOCKER_USER}
       - DOCKER_PASSWORD=${DOCKER_PASSWORD}
 
   maven:
-    image: meetveracity/jenkins-slave-maven:${TAG:-latest}
+    image: docker.vetsez.net/jenkins-slave-maven:${TAG:-latest}
     build:
       context: slaves/maven
     environment:
@@ -26,7 +26,7 @@ services:
       - JENKINS_AGENT_NAME=maven
   
   docker:
-    image: meetveracity/jenkins-slave-docker:${TAG:-latest}
+    image: docker.vetsez.net/jenkins-slave-docker:${TAG:-latest}
     build:
       context: slaves/docker
     environment:

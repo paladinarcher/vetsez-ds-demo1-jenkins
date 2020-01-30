@@ -1,14 +1,14 @@
 jobs:
   - script: >
-      organizationFolder(System.getenv('GITHUB_ORGANIZATION') ?: 'meetveracity') {
+      organizationFolder(System.getenv('GITHUB_ORGANIZATION') ?: 'paladinarcher') {
         description("Github Organization folder job configured with JCasC. Set the GITHUB_ORGANIZATION environment variable when launching the container to define the organization name.")
-        displayName(System.getenv('GITHUB_ORGANIZATION') ?: 'meetveracity')
+        displayName(System.getenv('GITHUB_ORGANIZATION') ?: 'paladinarcher')
         
         // "Projects"
         organizations {
           github {
             scanCredentialsId('github')
-            repoOwner(System.getenv('GITHUB_ORGANIZATION') ?: 'meetveracity')
+            repoOwner(System.getenv('GITHUB_ORGANIZATION') ?: 'paladinarcher')
           }
         }
         

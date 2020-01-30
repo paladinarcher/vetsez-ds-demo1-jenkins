@@ -61,8 +61,8 @@ unclassified:
           modernSCM:
             scm:
               github:
-                repoOwner: "meetveracity"
-                repository: "jenkins-library"
+                repoOwner: "paladinarcher"
+                repository: "vetsez-ds-demo1-jenkins-library"
                 credentialsId: "github"
                 traits:
                 - branchDiscoveryTrait
