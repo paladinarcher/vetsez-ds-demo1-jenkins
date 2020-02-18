@@ -3,7 +3,7 @@ version: "3"
 services:
   
   jenkins-master:
-    image: docker.vetsez.net/jenkins-master:${TAG:-latest}
+    image: paladinarcher/jenkins-master:${TAG:-latest}
     build:
       context: .
     ports:
@@ -17,7 +17,7 @@ services:
       - DOCKER_PASSWORD=${DOCKER_PASSWORD}
 
   maven:
-    image: docker.vetsez.net/jenkins-slave-maven:${TAG:-latest}
+    image: paladinarcher/jenkins-slave-maven:${TAG:-latest}
     build:
       context: slaves/maven
     environment:
@@ -26,7 +26,7 @@ services:
       - JENKINS_AGENT_NAME=maven
   
   docker:
-    image: docker.vetsez.net/jenkins-slave-docker:${TAG:-latest}
+    image: paladinarcher/jenkins-slave-docker:${TAG:-latest}
     build:
       context: slaves/docker
     environment:

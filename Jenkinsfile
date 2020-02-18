@@ -1,7 +1,7 @@
 dockerPipeline {
     dockerBuilds = [
-        'docker.vetsez.net/jenkins-master' : '.',
-        'docker.vetsez.net/jenkins-slave-maven' : 'slaves/maven',
-        'docker.vetsez.net/jenkins-slave-docker' : 'slaves/docker',
+        'paladinarcher/jenkins-master' : '.',
+        'paladinarcher/jenkins-slave-maven' : 'slaves/maven',
+        'paladinarcher/jenkins-slave-docker' : 'slaves/docker',
     ]
 }
