@@ -1,4 +1,4 @@
-FROM jenkins/jnlp-slave:3.29-1
+FROM jenkins/jnlp-slave:latest
 ARG MAVEN_VERSION=3.6.0
 ARG JRUBY_VERSION=9.2.8.0
 ARG YARN_VERSION=1.17.3

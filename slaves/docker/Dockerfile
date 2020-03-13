@@ -1,8 +1,9 @@
-FROM jenkins/jnlp-slave:3.27-1-alpine
+FROM jenkins/jnlp-slave:alpine
 
 USER root
 
 # Install Docker
+RUN apk add python-dev libffi-dev openssl-dev gcc libc-dev make
 RUN apk add --no-cache docker
 
 # Install docker-compose
